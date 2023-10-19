@@ -1,16 +1,5 @@
 import 'package:flutter/material.dart';
-
-class CardData {
-  final String name;
-  final String code;
-  final IconData icon;
-
-  CardData({
-    required this.name,
-    required this.code,
-    required this.icon,
-  });
-}
+import 'package:memoria/models/models.dart';
 
 class ResumenPage extends StatefulWidget {
   const ResumenPage({super.key});
@@ -22,41 +11,50 @@ class ResumenPage extends StatefulWidget {
 class _ResumenPageState extends State<ResumenPage> {
   @override
   Widget build(BuildContext context) {
-    final List<CardData> cards = [
-    CardData(name: "Ernesto Roca Mella", code: "JB6BPNG7", icon: Icons.person),
-    CardData(name: "Tarjeta 2", code: "5678", icon: Icons.person),
-    // Agrega más datos de tarjetas según necesites
-  ];
+    final List<CardDataResumen> cards = [
+      CardDataResumen(
+          name: "Sofía Rodríguez", code: "JB6BPNG7", icon: Icons.person),
+      CardDataResumen(name: "Matías Torres", code: "5678", icon: Icons.person),
+      CardDataResumen(
+          name: "Isabella Vargas", code: "5678", icon: Icons.person),
+      CardDataResumen(
+          name: "Nicolás Herrera", code: "5678", icon: Icons.person),
+      // Agrega más datos de tarjetas según necesites
+    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Resumen Operacion'),
       ),
       body: Column(
         children: [
-          CardWidget(cardData: cards[0]),
+          Expanded(
+            child: ListView.builder(
+              itemCount: cards.length,
+              itemBuilder: (context, index) {
+                return _CardWidget(cardData: cards[index]);
+              },
+            ),
+          ),
           ElevatedButton(
-                onPressed: () {
-                  print('por hacer');
-                  Navigator.popAndPushNamed(context, 'menuprincipal');
-                },
-                child: const Text('Aceptar')
-            )
+            onPressed: () {
+              print('por hacer');
+              //Elimina la ruta hasta la señalada, en este caso el menuprincipal
+              Navigator.of(context).popUntil((route) {
+                return route.settings.name == 'menuprincipal';
+              });
+            },
+            child: const Text('Aceptar')
+          )
         ],
-      )
-      
-      /*ListView.builder(
-          itemCount: cards.length,
-          itemBuilder: (context, index) {
-            return CardWidget(cardData: cards[index]);
-          },
-        ),*/
+      ),
     );
   }
 }
-class CardWidget extends StatelessWidget {
-  final CardData cardData;
 
-  CardWidget({required this.cardData});
+class _CardWidget extends StatelessWidget {
+  final CardDataResumen cardData;
+
+  _CardWidget({required this.cardData});
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +63,7 @@ class CardWidget extends StatelessWidget {
       child: ListTile(
         leading: Icon(cardData.icon),
         title: Text(cardData.name),
-        subtitle: Text("Código: ${cardData.code}"),
+        subtitle: Text("Codigo: ${cardData.code}"),
       ),
     );
   }

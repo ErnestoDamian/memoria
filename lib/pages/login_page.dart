@@ -19,41 +19,43 @@ class LoginPage extends StatelessWidget {
       body: Card(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text('Nombre', textAlign: TextAlign.left),
-              const SizedBox(height: 25,),
-              CustomInputField(
-                formProperty: 'formProperty',
-                formValues: formValue
-              ),
-              const SizedBox(height: 25,),
-              const Text('Contraseña'),
-              CustomInputField(
-                formProperty: 'formProperty', 
-                formValues: formValue
-              ),
-              const SizedBox(height: 25,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      /*FocusScope.of(context).requestFocus(FocusNode()); //para minimizar el teclado despues de apretar el boton
-                    if(!myFormKey.currentState!.validate()){
-                      return;
-                    } */
-                      print(formValue);
-                      Navigator.pushNamed(context, 'menuprincipal');
-
-                      // TODO: imprimir valores del formulario
-                    },
-                    child: const Center(child: Text('Ingresar')),
-                  ),
-                ],
-              )
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Email', textAlign: TextAlign.left),
+                const SizedBox(height: 25,),
+                CustomInputField(
+                  formProperty: 'formProperty',
+                  formValues: formValue
+                ),
+                const SizedBox(height: 25,),
+                const Text('Contraseña'),
+                CustomInputField(
+                  formProperty: 'formProperty', 
+                  formValues: formValue
+                ),
+                const SizedBox(height: 25,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        /*FocusScope.of(context).requestFocus(FocusNode()); //para minimizar el teclado despues de apretar el boton
+                      if(!myFormKey.currentState!.validate()){
+                        return;
+                      } */
+                        print(formValue);
+                        Navigator.pushNamed(context, 'menuprincipal');
+          
+                        // TODO: imprimir valores del formulario
+                      },
+                      child: const Center(child: Text('Ingresar')),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       )

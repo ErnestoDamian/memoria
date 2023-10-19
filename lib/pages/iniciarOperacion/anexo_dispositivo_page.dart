@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 
+class AnexoDispositivoPage extends StatefulWidget {
+  AnexoDispositivoPage({super.key});
 
+  @override
+  State<AnexoDispositivoPage> createState() => _AnexoDispositivoPageState();
+}
 
-class AnexoDispositivoPage extends StatelessWidget {
-  const AnexoDispositivoPage({super.key});
+class _AnexoDispositivoPageState extends State<AnexoDispositivoPage> {
+  final List<String> _nombresLista1 = [
+    "Sofía Rodríguez",
+    "Matías Torres",
+    "Isabella Vargas",
+    "Nicolás Herrera"
+  ];
+
+  var contador = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,38 +31,50 @@ class AnexoDispositivoPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Row(
+              Row(
                 children: [
-                  Text('Nombre Buzo: '),
-                  Text('Ernesto Roca Mella')
+                  const Text('Nombre Buzo: '),
+                  Text(_nombresLista1[contador])
                 ],
               ),
-              SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   const Text('Codigo Dispositivo: JB6BPNG7'),
-                  SizedBox(width: 10,),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   SizedBox(
                     height: 25,
-                    child: ElevatedButton(onPressed: () {
-                        print('por hacer');
-                      }, 
-                      child: const Text('Sincronizar')
-                    ),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          print('por hacer');
+                        },
+                        child: const Text('Sincronizar')),
                   )
-        
                 ],
               ),
             ],
           ),
-          SizedBox(width: 30,),
-          ElevatedButton(onPressed: () {
-              print('por hacer');
-              Navigator.pushNamed(context, 'Resumen');
-            }, 
-            child: const Text('Siguiente')
-          )
+          const SizedBox(
+            width: 30,
+          ),
+          ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (contador >= _nombresLista1.length - 1) {
+                    Navigator.pushNamed(context, 'Resumen');
+                  }
+                  if (contador < (_nombresLista1.length - 1)) {
+                    contador = contador + 1;
+                    print(contador);
+                  }
+                });
+              },
+              child: const Text('Siguiente'))
         ],
       ),
     );

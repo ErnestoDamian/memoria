@@ -10,8 +10,8 @@ class AppRoutes {
     'menuprincipal': (BuildContext context) => const MenuPage(),
     'seleccionbuzos': (BuildContext context) => const SeleccionBuzos(),
     'salidabuzos': (BuildContext context) => const SalidaBuzos(),
-    'AnexoDispositivo': (BuildContext context) => const AnexoDispositivoPage(),
-    //'Resumen': (BuildContext context) => const ResumenPage(),
+    'AnexoDispositivo': (BuildContext context) => AnexoDispositivoPage(),
+    'Resumen': (BuildContext context) => const ResumenPage(),
     'Operaciones': (BuildContext context) => const OperacionesPage(),
   };
 }
