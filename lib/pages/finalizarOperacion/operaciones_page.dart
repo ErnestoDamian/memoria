@@ -12,10 +12,11 @@ class _ResumenPageState extends State<OperacionesPage> {
   @override
   Widget build(BuildContext context) {
     final List<CardDataOperaciones> cards = [
-      CardDataOperaciones(
-          name: "Operacion 1", hora: "12:35", icon: Icons.scuba_diving),
-      CardDataOperaciones(
-          name: "Operacion 2", hora: "5678", icon: Icons.scuba_diving),
+      CardDataOperaciones(name: "Operacion 1", hora: "12:35", icon: Icons.scuba_diving),
+      CardDataOperaciones(name: "Operacion 2", hora: "05:00", icon: Icons.scuba_diving),
+      CardDataOperaciones(name: "Operacion 3", hora: "19:00", icon: Icons.scuba_diving),
+      CardDataOperaciones(name: "Operacion 4", hora: "18:00", icon: Icons.scuba_diving),
+      CardDataOperaciones(name: "Operacion 5", hora: "13:00", icon: Icons.scuba_diving),
       // Agrega más datos de tarjetas según necesites
     ];
     return Column(
@@ -56,13 +57,13 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(16.0),
+      margin: const EdgeInsets.all(5.0),
       child: ListTile(
         leading: Icon(cardData.icon),
         title: Text(cardData.name),
         subtitle: Text("Tiempo: ${cardData.hora}"),
         onTap: () {
-          print("algo");
+          Navigator.pushNamed(context, 'ResumenOperaciones');
         },
       ),
     );

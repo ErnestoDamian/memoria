@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:memoria/models/models.dart';
 
-class ResumenPage extends StatefulWidget {
-  const ResumenPage({super.key});
+class ResumenOperacionesPages extends StatefulWidget {
+  const ResumenOperacionesPages({super.key});
 
   @override
-  State<ResumenPage> createState() => _ResumenPageState();
+  State<ResumenOperacionesPages> createState() => _ResumenOperacionesPagesState();
 }
 
-class _ResumenPageState extends State<ResumenPage> {
+class _ResumenOperacionesPagesState extends State<ResumenOperacionesPages> {
   @override
   Widget build(BuildContext context) {
     final List<CardDataResumen> cards = [
@@ -24,6 +24,16 @@ class _ResumenPageState extends State<ResumenPage> {
       ),
       body: Column(
         children: [
+          const SizedBox(height: 5.0,),
+          const Row(
+            children: [
+              SizedBox(width: 100.0,),
+              Text("Hora Inicio: "),
+              SizedBox(width: 100.0,),
+              Text("Hora Termino: "),
+            ],
+          ),
+          const SizedBox(height: 5.0,),
           Expanded(
             child: ListView.builder(
               itemCount: cards.length,
@@ -33,21 +43,19 @@ class _ResumenPageState extends State<ResumenPage> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {
-              print('por hacer');
-              //Elimina la ruta hasta la señalada, en este caso el menuprincipal
-              Navigator.of(context).popUntil((route) {
-                return route.settings.name == 'menuprincipal';
-              });
-            },
-            child: const Text('Aceptar')
-          )
+              onPressed: () {
+                print('por hacer');
+                //Elimina la ruta hasta la señalada, en este caso el menuprincipal
+                Navigator.of(context).popUntil((route) {
+                  return route.settings.name == 'menuprincipal';
+                });
+              },
+              child: const Text('Aceptar'))
         ],
       ),
     );
   }
 }
-
 class _CardWidget extends StatelessWidget {
   final CardDataResumen cardData;
 

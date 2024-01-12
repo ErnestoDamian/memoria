@@ -23,10 +23,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Memoria',
-        initialRoute: AppRoutes.initialRoute,
-        routes: AppRoutes.routes,
-        theme: Apptheme.principalTheme);
+      debugShowCheckedModeBanner: false,
+      title: 'Memoria',
+      initialRoute: AppRoutes.initialRoute,
+      routes: AppRoutes.routes,
+      theme: Apptheme.principalTheme
+    );
   }
 }

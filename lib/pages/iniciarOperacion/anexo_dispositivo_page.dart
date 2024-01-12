@@ -9,7 +9,7 @@ class AnexoDispositivoPage extends StatefulWidget {
 
 class _AnexoDispositivoPageState extends State<AnexoDispositivoPage> {
   final List<String> _nombresLista1 = [
-    "Sofía Rodríguez",
+    "Esmeralda Ana",
     "Matías Torres",
     "Isabella Vargas",
     "Nicolás Herrera"

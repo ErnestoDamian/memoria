@@ -12,7 +12,7 @@ class _SeleccionBuzosState extends State<SeleccionBuzos> {
   final List<bool> _selections2 = List.generate(4, (index) => false); /*Poner el maximo de personas que se va a utilizar*/
   final List<bool> _selections3 = List.generate(4, (index) => false); /*Poner el maximo de personas que se va a utilizar*/
   final List<bool> _selections4 = List.generate(4, (index) => false); /*Poner el maximo de personas que se va a utilizar*/
-  final List<String> _nombresLista1 = ["Sofía Rodríguez","Alejandro Pérez","Valentina López","Sebastián Martínez"]; /*Poner el maximo de personas que se va a utilizar*/
+  final List<String> _nombresLista1 = ["Esmeralda Ana","Alejandro Pérez","Valentina López","Sebastián Martínez"]; /*Poner el maximo de personas que se va a utilizar*/
   final List<String> _nombresLista2 = ["Camila González","Matías Torres","Isabella Vargas","Santiago Ramírez"]; /*Poner el maximo de personas que se va a utilizar*/
   final List<String> _nombresLista3 = ["Valeria Castro","Diego Jiménez","Martina Silva","Nicolás Herrera"]; /*Poner el maximo de personas que se va a utilizar*/
   final List<String> _nombresLista4 = ["Isidora Ríos","Juan Pablo Sánchez","Antonia Ortega","Andrés Flores"]; /*Poner el maximo de personas que se va a utilizar*/

@@ -13,5 +13,6 @@ class AppRoutes {
     'AnexoDispositivo': (BuildContext context) => AnexoDispositivoPage(),
     'Resumen': (BuildContext context) => const ResumenPage(),
     'Operaciones': (BuildContext context) => const OperacionesPage(),
+    'ResumenOperaciones': (BuildContext context) => const ResumenOperacionesPages(),
   };
 }
